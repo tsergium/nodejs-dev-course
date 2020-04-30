@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Sergiu Tomsa<tsergium@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.16.4",
