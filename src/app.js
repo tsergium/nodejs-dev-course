@@ -21,6 +21,9 @@ hbs.registerPartials(partialsPath)
 app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
+  res.locals.metaTags = {
+    title: 'Home | Weather app'
+  };
   res.render('index', {
     title: 'Weather',
     name: 'Sergiu Tomsa'
@@ -28,6 +31,9 @@ app.get('', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
+  res.locals.metaTags = {
+    title: 'About | Weather app'
+  };
   res.render('about', {
     title: 'About Me',
     name: 'Sergiu Tomsa'
@@ -35,6 +41,9 @@ app.get('/about', (req, res) => {
 })
 
 app.get('/help', (req, res) => {
+  res.locals.metaTags = {
+    title: 'Help | Weather app'
+  };
   res.render('help', {
     helpText: 'This is some helpful text.',
     title: 'Help',
@@ -69,21 +78,10 @@ app.get('/weather', (req, res) => {
   })
 })
 
-app.get('/products', (req, res) => {
-  if (!req.query.search) {
-    return res.send({
-      error: 'You must provide a search term'
-    })
-  }
-
-  const { search = '' } = req.query
-  console.log(search)
-  res.send({
-    products: []
-  })
-})
-
 app.get('/help/*', (req, res) => {
+  res.locals.metaTags = {
+    title: 'Help page not Found | Weather app'
+  };
   res.render('404', {
     title: '404',
     name: 'Sergiu Tomsa',
@@ -92,6 +90,9 @@ app.get('/help/*', (req, res) => {
 })
 
 app.get('*', (req, res) => {
+  res.locals.metaTags = {
+    title: 'Page not Found | Weather app'
+  };
   res.render('404', {
     title: '404',
     name: 'Sergiu Tomsa',
